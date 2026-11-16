@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Receitas de bolos caseiros: simples, deliciosas e feitas com carinho.">
+  <meta name="theme-color" content="#ee7a36">
+  <title>Doce Forno | Receitas de bolo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --orange:#e76d27; --deep:#a94419; --cream:#fff9f1; --peach:#ffe9d7; --ink:#3e291e; --muted:#806b5b; --line:#eddccc; --white:#fff; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--cream); color:var(--ink); font-family:"DM Sans",Arial,sans-serif; }
+    a { color:inherit; }
+    button { font:inherit; cursor:pointer; }
+    .wrap { width:min(1160px,calc(100% - 40px)); margin:auto; }
+    .topbar { background:#f9dfc9; color:#8a3a16; text-align:center; padding:10px; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+    header { background:var(--cream); border-bottom:1px solid var(--line); }
+    .nav { min-height:82px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .logo { display:flex; align-items:center; gap:11px; text-decoration:none; font-family:"Playfair Display",Georgia,serif; font-weight:800; font-size:27px; letter-spacing:-1px; }
+    .logo-mark { background:var(--orange); color:white; width:43px; height:43px; display:grid; place-items:center; border-radius:14px; font-size:23px; transform:rotate(-7deg); }
+    nav { display:flex; gap:32px; align-items:center; }
+    nav a { text-decoration:none; font-size:14px; font-weight:700; color:#604536; }
+    nav a:hover { color:var(--orange); }
+    .nav-pill { padding:12px 20px; background:var(--ink); color:white; border-radius:99px; text-decoration:none; font-weight:700; font-size:13px; }
+    .hero { display:grid; grid-template-columns:1fr 1fr; align-items:center; min-height:555px; gap:45px; padding:60px 0; }
+    .eyebrow { display:inline-flex; align-items:center; gap:9px; color:var(--deep); letter-spacing:.14em; text-transform:uppercase; font-size:12px; font-weight:800; }
+    .eyebrow:before { content:""; width:25px; height:2px; background:var(--orange); }
+    h1,h2,h3 { font-family:"Playfair Display",Georgia,serif; }
+    h1 { font-size:clamp(49px,5.8vw,82px); line-height:1.08; letter-spacing:-3px; margin:22px 0; }
+    h1 em { font-style:italic; color:var(--orange); }
+    .hero p { max-width:450px; color:var(--muted); font-size:17px; line-height:1.85; margin-bottom:28px; }
+    .btn { display:inline-flex; justify-content:center; align-items:center; gap:10px; background:var(--orange); color:white; border:0; border-radius:12px; padding:16px 25px; font-weight:800; text-decoration:none; transition:transform .2s,background .2s; }
+    .btn:hover { background:var(--deep); transform:translateY(-2px); }
+    .hero-photo { min-height:452px; position:relative; }
+    .hero-photo img { height:452px; width:100%; object-fit:cover; border-radius:180px 180px 24px 24px; box-shadow:22px 24px 0 #f8dfc7; display:block; }
+    .sticker { position:absolute; bottom:20px; left:-37px; width:116px; height:116px; border-radius:50%; background:#fff; box-shadow:0 8px 28px #8c502020; display:flex; flex-direction:column; align-items:center; justify-content:center; transform:rotate(-12deg); text-align:center; font-size:12px; font-weight:800; color:var(--deep); }
+    .sticker span { font-size:29px; margin-bottom:4px; }
+    section { scroll-margin-top:25px; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:25px; margin-bottom:30px; }
+    .section-head h2 { font-size:clamp(32px,4vw,47px); margin:12px 0 0; letter-spacing:-1px; }
+    .section-head p { color:var(--muted); max-width:350px; line-height:1.7; margin:0; }
+    .recipes { padding:50px 0 78px; }
+    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+    .recipe-card { background:white; border:1px solid var(--line); border-radius:19px; overflow:hidden; box-shadow:0 6px 25px #65341908; transition:transform .2s; }
+    .recipe-card:hover { transform:translateY(-5px); }
+    .recipe-card img { width:100%; height:225px; object-fit:cover; display:block; }
+    .recipe-body { padding:23px; }
+    .tag { display:inline-block; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--deep); background:#fff0e2; font-weight:800; padding:7px 10px; border-radius:6px; }
+    .recipe-card h3 { margin:15px 0 10px; font-size:25px; }
+    .recipe-card p { color:var(--muted); line-height:1.65; min-height:53px; font-size:14px; }
+    .meta { display:flex; gap:18px; color:#725d4d; font-size:13px; margin:16px 0 21px; }
+    .recipe-card button { border:0; background:none; color:var(--orange); padding:0; font-weight:800; }
+    .recipe-card button:hover { text-decoration:underline; }
+    .detail-wrap { background:#fff0e2; padding:66px 0; }
+    .detail { display:grid; grid-template-columns:1fr 1fr; gap:52px; align-items:start; }
+    .detail h2 { font-size:clamp(32px,4vw,48px); line-height:1.18; letter-spacing:-1px; margin:13px 0 15px; }
+    .detail p { color:var(--muted); line-height:1.8; }
+    .detail img { width:100%; height:350px; object-fit:cover; border-radius:20px; margin-top:22px; }
+    .instruction { background:white; padding:30px; border-radius:20px; box-shadow:0 12px 35px #ae56220c; }
+    .instruction h3 { font-size:24px; margin:0 0 15px; }
+    .instruction ul,.instruction ol { padding-left:20px; line-height:1.85; color:#604a3d; margin:0 0 28px; }
+    .instruction li { padding-left:3px; margin-bottom:6px; }
+    .tip { background:#fff8ef; border-left:4px solid var(--orange); padding:14px 17px; color:#70442c; font-size:13px; line-height:1.7; border-radius:0 9px 9px 0; }
+    .ad-section { padding:76px 0; }
+    .ad { position:relative; overflow:hidden; border-radius:24px; background:#432c20; padding:50px 60px; display:grid; grid-template-columns:1fr auto; gap:35px; align-items:center; color:white; }
+    .ad:after { content:"🪑"; position:absolute; font-size:220px; opacity:.08; right:24%; top:-44px; transform:rotate(-20deg); pointer-events:none; }
+    .ad-kicker { color:#ffc08d; text-transform:uppercase; font-size:11px; font-weight:800; letter-spacing:.17em; }
+    .ad h2 { font-size:clamp(29px,3.5vw,42px); margin:12px 0; }
+    .ad p { color:#e7cfc0; line-height:1.75; max-width:640px; margin:0; }
+    .ad .btn { background:#f9b170; color:#3d2417; white-space:nowrap; z-index:1; }
+    .ad .btn:hover { background:white; }
+    .about { padding:18px 0 74px; text-align:center; }
+    .about h2 { font-size:36px; margin:12px 0; }
+    .about p { max-width:600px; line-height:1.8; color:var(--muted); margin:0 auto; }
+    footer { background:#332219; color:#e6cab7; padding:31px 0; font-size:13px; }
+    footer .wrap { display:flex; justify-content:space-between; flex-wrap:wrap; gap:15px; }
+    footer a { color:#f8c397; text-decoration:none; }
+    @media(max-width:850px) { .hero { grid-template-columns:1fr 1fr; gap:24px; } .hero-photo img { height:390px; } .hero-photo { min-height:390px; } .sticker { left:-16px; } .cards { gap:12px; } .recipe-body { padding:18px; } .recipe-card img { height:170px; } .detail { gap:22px; } .ad { padding:36px; } }
+    @media(max-width:640px) { .wrap { width:min(100% - 30px,1160px); } .topbar { font-size:10px; } .nav { min-height:70px; } .logo { font-size:22px; } .logo-mark { width:37px; height:37px; } nav { display:none; } .nav-pill { font-size:11px; padding:11px 14px; } .hero { display:flex; flex-direction:column; padding:43px 0 60px; gap:32px; align-items:stretch; } h1 { font-size:55px; } .hero p { font-size:15px; } .hero-photo { min-height:310px; margin-right:17px; } .hero-photo img { height:315px; border-radius:120px 120px 20px 20px; } .sticker { width:91px; height:91px; font-size:10px; left:-7px; } .sticker span { font-size:23px; } .section-head { display:block; } .section-head p { margin-top:12px; } .cards { grid-template-columns:1fr; gap:19px; } .recipe-card img { height:240px; } .recipe-card p { min-height:0; } .recipes { padding:20px 0 55px; } .detail { grid-template-columns:1fr; } .detail-wrap { padding:45px 0; } .detail img { height:270px; } .instruction { padding:22px; } .ad-section { padding:48px 0; } .ad { grid-template-columns:1fr; padding:32px 25px; gap:24px; } .ad .btn { width:fit-content; white-space:normal; } .about { padding:15px 0 55px; } }
+  </style>
+</head>
+<body>
+  <div class="topbar">🍰 Um pedacinho de felicidade em cada receita</div>
+  <header>
+    <div class="wrap nav">
+      <a class="logo" href="#inicio"><span class="logo-mark">♨</span> Doce Forno<span style="color:#e76d27">.</span></a>
+      <nav aria-label="Navegação principal"><a href="#receitas">Receitas</a><a href="#preparo">Como preparar</a><a href="#sobre">Sobre</a></nav>
+      <a class="nav-pill" href="#receitas">Ver receitas ↗</a>
+    </div>
+  </header>
+  <main>
+    <section class="wrap hero" id="inicio">
+      <div>
+        <span class="eyebrow">Receitas feitas com carinho</span>
+        <h1>Todo dia merece um <em>bolinho.</em></h1>
+        <p>O cheirinho de bolo saindo do forno transforma qualquer momento. Descubra receitas simples, fofinhas e cheias de sabor para compartilhar.</p>
+        <a class="btn" href="#receitas">Explorar receitas <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="hero-photo">
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1100&auto=format&fit=crop&q=85" alt="Bolo decorado sobre uma mesa" fetchpriority="high">
+        <div class="sticker"><span>♡</span> Feito com<br>carinho!</div>
+      </div>
+    </section>
+    <section class="wrap recipes" id="receitas">
+      <div class="section-head"><div><span class="eyebrow">Escolha o seu favorito</span><h2>Receitas para se apaixonar</h2></div><p>Três clássicos irresistíveis para adoçar o café da tarde.</p></div>
+      <div class="cards">
+        <article class="recipe-card">
+          <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=750&auto=format&fit=crop&q=80" alt="Bolo de chocolate" loading="lazy">
+          <div class="recipe-body"><span class="tag">Queridinho da casa</span><h3>Bolo de chocolate</h3><p>Fofinho, intenso e perfeito para acompanhar um café quentinho.</p><div class="meta"><span>⏱ 45 min</span><span>🍽 10 fatias</span></div><button type="button" onclick="mostrarReceita('chocolate')">Ver receita completa →</button></div>
+        </article>
+        <article class="recipe-card">
+          <img src="https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?w=750&auto=format&fit=crop&q=80" alt="Bolo caseiro em uma mesa" loading="lazy">
+          <div class="recipe-body"><span class="tag">Clássico brasileiro</span><h3>Bolo de cenoura</h3><p>Massa macia e sabor de infância, com cobertura de chocolate.</p><div class="meta"><span>⏱ 50 min</span><span>🍽 12 fatias</span></div><button type="button" onclick="mostrarReceita('cenoura')">Ver receita completa →</button></div>
+        </article>
+        <article class="recipe-card">
+          <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=750&auto=format&fit=crop&q=80" alt="Sobremesa com frutas e cobertura clara" loading="lazy">
+          <div class="recipe-body"><span class="tag">Para o café da tarde</span><h3>Bolo de laranja</h3><p>Leve, perfumado e com aquele gostinho especial de receita caseira.</p><div class="meta"><span>⏱ 45 min</span><span>🍽 10 fatias</span></div><button type="button" onclick="mostrarReceita('laranja')">Ver receita completa →</button></div>
+        </article>
+      </div>
+    </section>
+    <section class="detail-wrap" id="preparo" aria-live="polite">
+      <div class="wrap detail">
+        <div>
+          <span class="eyebrow">Passo a passo</span>
+          <h2 id="detail-title">Bolo de chocolate fofinho</h2>
+          <p id="detail-description">Um clássico irresistível para fazer em casa sem complicação.</p>
+          <img id="detail-image" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=950&auto=format&fit=crop&q=80" alt="Bolo da receita selecionada" loading="lazy">
+        </div>
+        <div class="instruction">
+          <h3>🧡 Ingredientes</h3>
+          <ul id="ingredients"></ul>
+          <h3>👩‍🍳 Modo de preparo</h3>
+          <ol id="steps"></ol>
+          <div class="tip"><strong>Dica do Doce Forno:</strong> preaqueça o forno e evite abri-lo nos primeiros 25 minutos para ajudar o bolo a crescer.</div>
+        </div>
+      </div>
+    </section>
+    <section class="wrap ad-section" aria-label="Publicidade">
+      <aside class="ad">
+        <div><span class="ad-kicker">Publicidade • Projeto parceiro</span><h2>Uma boa receita merece um bom assento. 🪑</h2><p>Conheça o <strong>Assento Usado</strong>, um catálogo de cadeiras para escritório, estudo e outros ambientes. Confira os modelos e entre em contato diretamente com os vendedores.</p></div>
+        <a class="btn" href="https://github.com/rogertarefasifsp-ops/cadeiras" target="_blank" rel="noopener noreferrer">Conhecer o Assento Usado ↗</a>
+      </aside>
+    </section>
+    <section class="wrap about" id="sobre"><span class="eyebrow">Um toque de afeto</span><h2>Cozinhar é criar memórias.</h2><p>Aqui, cada receita é um convite para reunir quem você gosta, experimentar novos sabores e tornar o dia mais doce.</p></section>
+  </main>
+  <footer><div class="wrap"><span>© 2026 Doce Forno. Feito com carinho 🍰</span><span>Publicidade: <a href="https://github.com/rogertarefasifsp-ops/cadeiras" target="_blank" rel="noopener noreferrer">Assento Usado</a></span></div></footer>
+  <script>
+    const receitas = {
+      chocolate: {
+        titulo:'Bolo de chocolate fofinho', descricao:'Um clássico irresistível para fazer em casa sem complicação.',
+        imagem:'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=950&auto=format&fit=crop&q=80',
+        ingredientes:['2 ovos','1 xícara de açúcar','1 xícara de leite','1/2 xícara de óleo','1 xícara de chocolate em pó','2 xícaras de farinha de trigo','1 colher (sopa) de fermento químico'],
+        passos:['Preaqueça o forno a 180 °C. Unte e enfarinhe uma forma média.','Misture os ovos, o açúcar, o leite e o óleo até ficar homogêneo.','Acrescente o chocolate e a farinha aos poucos, mexendo até incorporar.','Misture o fermento delicadamente.','Despeje na forma e asse por cerca de 35 minutos. Faça o teste do palito antes de retirar.']
+      },
+      cenoura: {
+        titulo:'Bolo de cenoura com chocolate', descricao:'Massa douradinha e macia com uma cobertura de chocolate deliciosa.',
+        imagem:'https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?w=950&auto=format&fit=crop&q=80',
+        ingredientes:['3 cenouras médias picadas (aprox. 250 g)','3 ovos','1/2 xícara de óleo','1 e 1/2 xícara de açúcar','2 xícaras de farinha de trigo','1 colher (sopa) de fermento químico','Para cobertura: 4 colheres (sopa) de chocolate em pó, 3 de açúcar, 1 de manteiga e 4 de leite'],
+        passos:['Preaqueça o forno a 180 °C e unte uma forma média.','Bata no liquidificador cenouras, ovos, óleo e açúcar até ficar liso.','Passe para uma tigela e misture a farinha. Adicione o fermento por último.','Asse por 35 a 45 minutos, até passar no teste do palito.','Para a cobertura, leve os ingredientes ao fogo baixo, mexendo até engrossar um pouco. Espalhe sobre o bolo.']
+      },
+      laranja: {
+        titulo:'Bolo de laranja caseiro', descricao:'Uma receita perfumada, delicada e perfeita para o café da tarde.',
+        imagem:'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=950&auto=format&fit=crop&q=80',
+        ingredientes:['3 ovos','1 xícara de açúcar','1/2 xícara de óleo','1 xícara de suco de laranja natural','Raspas de 1 laranja (sem a parte branca)','2 xícaras de farinha de trigo','1 colher (sopa) de fermento químico'],
+        passos:['Preaqueça o forno a 180 °C e unte uma forma média.','Bata ovos, açúcar e óleo. Junte o suco e as raspas de laranja.','Incorpore a farinha e, por último, o fermento.','Asse por 35 a 40 minutos, conferindo com um palito.','Espere amornar antes de desenformar. Se quiser, regue com um pouco de suco de laranja.']
+      }
+    };
+    function mostrarReceita(tipo) {
+      const r = receitas[tipo];
+      if (!r) return;
+      document.getElementById('detail-title').textContent = r.titulo;
+      document.getElementById('detail-description').textContent = r.descricao;
+      const imagem = document.getElementById('detail-image');
+      imagem.src = r.imagem;
+      imagem.alt = r.titulo;
+      document.getElementById('ingredients').replaceChildren(...r.ingredientes.map(item=>{ const li=document.createElement('li');li.textContent=item;return li; }));
+      document.getElementById('steps').replaceChildren(...r.passos.map(item=>{ const li=document.createElement('li');li.textContent=item;return li; }));
+      document.getElementById('preparo').scrollIntoView({behavior:'smooth'});
+    }
+    mostrarReceita('chocolate');
+    window.scrollTo(0,0);
+  </script>
+</body>
+</html>
