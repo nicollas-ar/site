@@ -67,12 +67,12 @@
     .tip { background:#fff8ef; border-left:4px solid var(--orange); padding:14px 17px; color:#70442c; font-size:13px; line-height:1.7; border-radius:0 9px 9px 0; }
     .ad-section { padding:76px 0; }
     .ad { position:relative; overflow:hidden; border-radius:24px; background:#432c20; padding:50px 60px; display:grid; grid-template-columns:1fr auto; gap:35px; align-items:center; color:white; }
-    .ad-photo { width:180px; height:245px; object-fit:cover; object-position:center; border-radius:17px; grid-row:1; grid-column:2; justify-self:center; box-shadow:0 15px 32px #1d100a55; }
+    .ad-photo { width:180px; height:245px; object-fit:cover; object-position:center; border-radius:17px; grid-row:1 / span 2; grid-column:2; justify-self:center; box-shadow:0 15px 32px #1d100a55; }
     .ad:after { content:"🪑"; position:absolute; font-size:220px; opacity:.08; right:24%; top:-44px; transform:rotate(-20deg); pointer-events:none; }
     .ad-kicker { color:#ffc08d; text-transform:uppercase; font-size:11px; font-weight:800; letter-spacing:.17em; }
     .ad h2 { font-size:clamp(29px,3.5vw,42px); margin:12px 0; }
     .ad p { color:#e7cfc0; line-height:1.75; max-width:640px; margin:0; }
-    .ad .btn { grid-column:2; grid-row:1; align-self:end; margin-bottom:0; }
+    .ad .btn { grid-column:1; grid-row:2; justify-self:start; align-self:start; margin-bottom:0; }
     .ad .btn { background:#f9b170; color:#3d2417; white-space:nowrap; z-index:1; }
     .ad .btn:hover { background:white; }
     .about { padding:18px 0 74px; text-align:center; }
